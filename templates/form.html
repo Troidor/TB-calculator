@@ -1,0 +1,34 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Calculator - Inputs</title>
+  </head>
+  <body>
+    <h2>Secure Calculator (sheet: {{ sheet_name }})</h2>
+    <p><a href="{{ url_for('logout') }}">Logout</a></p>
+    <form method="post" action="{{ url_for('calculate') }}">
+      <input type="hidden" name="sheet_name" value="{{ sheet_name }}" />
+      <table border="1" cellpadding="6">
+        <thead>
+          <tr><th>Cell</th><th>Label (guessed)</th><th>Value (edit)</th></tr>
+        </thead>
+        <tbody>
+        {% for item in inputs %}
+          <tr>
+            <td>{{ item.coord }}</td>
+            <td>{{ item.label or '-' }}</td>
+            <td>
+              <input type="text" name="input__{{ item.coord }}" value="{{ item.value or '' }}" />
+            </td>
+          </tr>
+        {% endfor %}
+        </tbody>
+      </table>
+      <p>
+        <button type="submit">Calculate</button>
+      </p>
+    </form>
+    <p>Detected {{ inputs|length }} input cells (yellow) in column C. Output will be all formula cells in 'Calcs'.</p>
+  </body>
+</html>
