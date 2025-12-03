@@ -1,19 +1,24 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>TB Calculator</title>
+    <title>TB Calculator Results</title>
 </head>
 <body>
-    <h2>TB Calculator Inputs</h2>
 
-    <form action="/calculate" method="post">
-        {% for cell in inputs %}
-            <label>{{ cell }}</label>
-            <input type="text" name="{{ cell }}" required>
-            <br><br>
-        {% endfor %}
-        <button type="submit">Calculate</button>
-    </form>
+<h2>Results</h2>
+
+<table border="1" cellpadding="8">
+    <tr><th>Cell</th><th>Value</th></tr>
+    {% for cell, value in results.items() %}
+    <tr>
+        <td>{{ cell }}</td>
+        <td>{{ value }}</td>
+    </tr>
+    {% endfor %}
+</table>
+
+<br>
+<a href="/">Back</a>
 
 </body>
 </html>
