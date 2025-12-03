@@ -168,7 +168,7 @@ def evaluate_all(values_map, formulas_map, max_passes=15):
             f = formula.lstrip("=+").strip()
             try:
                 expr = f
-                expr = re.sub(r"SUMIF\(([^,]+),([^,]+),([^)]+)\)", 
+                expr = re.sub(r"\b([A-Za-z]{1,3}\d{1,4})\b", repl_cellref, expr), 
                               lambda m: f"__SUMIF__('{m.group(1).strip()}', {m.group(2).strip()}, '{m.group(3).strip()}')",
                               expr, flags=re.IGNORECASE)
                 expr = re.sub(r"AVERAGE\(([^)]+)\)", lambda m: f"__AVERAGE__('{m.group(1).strip()}')", expr, flags=re.IGNORECASE)
