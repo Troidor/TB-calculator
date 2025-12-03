@@ -180,7 +180,7 @@ def evaluate_all(values_map, formulas_map, max_passes=15):
 
                 def repl_cellref(m):
                     ref = m.group(0)
-                    return f\"__VAL__('{ref}')\"
+                    return f"__VAL__('{ref}')"
                 expr = re.sub(r\"\\b([A-Za-z]{1,3}\\d{1,4})\\b\", repl_cellref, expr)
                 expr = re.sub(r\"([0-9]*\\.?[0-9]+)\\%\", lambda m: f\"({m.group(1)}/100)\", expr)
 
