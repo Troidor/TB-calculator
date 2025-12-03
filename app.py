@@ -86,4 +86,4 @@ def __SUMIF__(range_ref, criteria, sum_ref):
 def eval_formula(expr):
 
     # SUMIF
-    sumif_pattern = r"SUMIF\s*\(\s*([^,]+)\s*,\s*([^,]_
+    sumif_pattern = r"SUMIF\s*\(\s*([^,]+)\s*,\s*([^,]+)\s*,\s*([^)]+)\s*\)"
