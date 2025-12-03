@@ -3,11 +3,10 @@ import pandas as pd
 
 st.title("TB Calculator")
 
-# Load Excel
-df = pd.read_excel("TB.xlsx", sheet_name=None)
+# Load Excel file from same folder
+FILE = "TB.xlsx"
 
-st.write("Excel sheets loaded:")
-st.write(df.keys())
+df = pd.read_excel(FILE, sheet_name=None)
+st.write("Sheets loaded:", df.keys())
 
-st.write("Done – ready for calculations!")
-
+st.success("Excel loaded successfully!")
