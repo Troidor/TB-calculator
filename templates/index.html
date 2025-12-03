@@ -1,0 +1,26 @@
+
+<!DOCTYPE html>
+<html>
+<body>
+<h2>Calculator</h2>
+<form method="POST">
+    <label>B2:</label>
+    <input name="B2" />
+
+    <h3>Inputs</h3>
+    {% for i in [8,9,10,11,12,13,14,15,19,20,21,22,23,24,25,26] %}
+        G{{i}}: <input name="G{{i}}"><br>
+    {% endfor %}
+    <button type="submit">Calculate</button>
+</form>
+
+{% if result %}
+<h3>Results</h3>
+<ul>
+{% for k,v in result.items() %}
+<li>{{k}}: {{v}}</li>
+{% endfor %}
+</ul>
+{% endif %}
+</body>
+</html>
